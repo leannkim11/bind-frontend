@@ -9,7 +9,7 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 30px;
   padding: 20px;
   color: white;
 }
@@ -23,6 +23,77 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#sign-up-form {
+  width: 400px;
+  margin: auto;
+  padding: 70px;
+  border-style: groove;
+  border-radius: 5px;
+}
+
+#mainlogo {
+  margin: auto;
+  padding: 40px;
+}
+
+.card {
+  top: 150px;
+  width: 400px;
+  height: 500px;
+  padding: 50px;
+  text-align: center;
+}
+
+#leftcard {
+  left: 350px;
+  text-align: center;
+}
+
+.card-image {
+  width: 200px;
+  margin: auto;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#seeker-sidebar {
+  width: 400px;
+  height: 700px;
+  float: left;
+  border-style: groove;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 40px;
+}
+
+.user-profile {
+  float: right;
+  width: 800px;
+  height: 700px;
+  margin: 40px;
+}
+
+.button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.seeker-edit-form {
+  width: 1000px;
+  padding: 60px;
+  margin: auto;
+  border-style: groove;
+  border-radius: 5px;
 }

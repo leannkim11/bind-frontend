@@ -1,18 +1,43 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+
+import { Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+////MY COMPONENTS//////
+import LogInForm from "./components/LogInForm";
+import SignUpForm from "./components/SignUpForm";
+import UserTypeCard from "./components/UserTypeCard";
+import SeekerProfileContainer from "./components/SeekerProfileContainer";
+import InsiderProfileContainer from "./components/InsiderProfileContainer";
+import SeekerEditForm from "./components/SeekerEditForm";
+/////
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <div className="App">
+          <header className="App-header" />
+        </div>
+        <Router>
+          <React.Fragment>
+            <Route exact path="/" component={LogInForm} />
+            <Route exact path="/loggedin" component={UserTypeCard} />
+            <Route exact path="/signup" component={SignUpForm} />
+            <Route
+              exact
+              path="/seekerprofile"
+              component={SeekerProfileContainer}
+            />
+            <Route
+              exact
+              path="/insiderprofile"
+              component={InsiderProfileContainer}
+            />
+            <Route exact path="/seekeredit" component={SeekerEditForm} />
+          </React.Fragment>
+        </Router>
       </div>
     );
   }
