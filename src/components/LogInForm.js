@@ -1,10 +1,18 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter, Redirect } from "react-router";
+import { loginUser } from "../actions/user";
 
 export default class LogInForm extends Component {
+  state = {
+    email: "",
+    password: ""
+  };
+
   render() {
     return (
-      <div>
-        <img src="./bind.jpeg" alt="" id="mainlogo" className="center" />
+      <React.Fragment>
+        <img src="./bind-logo.svg" alt="" id="mainlogo" className="center" />
         <form id="sign-up-form" action="/loggedin">
           <div className="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -36,7 +44,7 @@ export default class LogInForm extends Component {
           <br />
           <a href="/signup">click here to sign up</a>
         </form>
-      </div>
+      </React.Fragment>
     );
   }
 }

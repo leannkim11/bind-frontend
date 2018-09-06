@@ -6,6 +6,7 @@ export default class SignUpForm extends Component {
       <div>
         <img src="./bind.jpeg" alt="" id="mainlogo" className="center" />
         <form id="sign-up-form" action="/">
+          <h3>Sign Up Below!</h3>
           <div class="form-group">
             <label for="name">Name</label>
             <input

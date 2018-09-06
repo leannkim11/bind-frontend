@@ -19,7 +19,7 @@ export const loginUser = (email, password) => {
 
 export const fetchCurrentUser = () => {
   return dispatch => {
-    fetch("http://localhost:3000/api/v1/profile", {
+    fetch("http://localhost:3000/api/v1/loggedin", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`

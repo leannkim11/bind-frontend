@@ -42,6 +42,7 @@
 #mainlogo {
   margin: auto;
   padding: 40px;
+  width: 300px;
 }
 
 .card {
@@ -90,10 +91,29 @@
   margin-right: auto;
 }
 
-.seeker-edit-form {
+.bind-form {
   width: 1000px;
   padding: 60px;
   margin: auto;
   border-style: groove;
   border-radius: 5px;
+}
+
+.post-new {
+  position: absolute;
+  margin: auto;
+}
+
+#profile-pic {
+  margin: 5px;
+  width: 200px;
+  height: 200px;
+}
+
+#bg {
+  background-image: url("./image/BindHomepage2.svg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: aqua; */
 }

@@ -4,7 +4,8 @@ export default class UserProfile extends Component {
   render() {
     return (
       <div className="user-profile">
-        <img src="..." class="rounded float-left" alt="..." /> <h5>Name</h5>
+        <img src="./avatar.png" id="profile-pic" alt="..." />
+        <h5>Name</h5>
         <p>LinkedIn: </p>
         <p>Current Location: </p>
         <p>Industry: </p>

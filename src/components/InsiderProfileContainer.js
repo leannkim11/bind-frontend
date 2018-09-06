@@ -14,6 +14,12 @@ export default class InsiderProfileContainer extends Component {
         <SideBar />
         <div class="card-deck">
           <JobCard />
+
+          <div className="post-new">
+            <a href="/postjob" className="btn btn-outline-info">
+              POST NEW
+            </a>
+          </div>
         </div>
       </div>
     );

@@ -1,12 +1,36 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
+import industry from "./industry";
 
 export default class SeekerEditForm extends Component {
+  state = {
+    industry: industry,
+    linkedin: "",
+    city: "",
+    state: "",
+    personalstatement: ""
+  };
+
+  mapIndustry = () => {
+    let mappedIndustry = this.state.industry.map(i => (
+      <option value={i.name} key={i.name}>
+        {i.name}
+      </option>
+    ));
+    return mappedIndustry;
+  };
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
   render() {
     return (
       <div>
         <NavBar />
-        <form className="seeker-edit-form">
+        <form className="bind-form">
           {/*Attachment*/}
           <div className="form-group">
             <label for="exampleFormControlFile1">Profile Picture</label>
@@ -25,6 +49,9 @@ export default class SeekerEditForm extends Component {
               className="form-control"
               id="exampleFormControlInput1"
               placeholder="linkedin url"
+              name="linkedin"
+              value={this.state.linkedin}
+              onChange={this.handleChange}
             />
           </div>
           <br />
@@ -32,10 +59,24 @@ export default class SeekerEditForm extends Component {
           <label>Current Location</label>
           <div className="form-row">
             <div className="col">
-              <input type="text" className="form-control" placeholder="City" />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="City"
+                name="city"
+                value={this.state.city}
+                onChange={this.handleChange}
+              />
             </div>
             <div className="col">
-              <input type="text" className="form-control" placeholder="State" />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="State"
+                name="state"
+                value={this.state.state}
+                onChange={this.handleChange}
+              />
             </div>
           </div>
           <br />
@@ -79,15 +120,17 @@ export default class SeekerEditForm extends Component {
               </label>
             </div>
             <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Choose...</option>
-              <option value="1">Tech</option>
-              <option value="2">Media</option>
-              <option value="3">Finance</option>
+              {this.mapIndustry()}
             </select>
           </div>
 
           {/*Personal Statement*/}
-          <textarea placeholder="personal statement" />
+          <textarea
+            placeholder="personal statement"
+            name="personalStatement"
+            value={this.state.personalStatement}
+            onChange={this.handleChange}
+          />
           <br />
           <br />
           {/*Attachment*/}
