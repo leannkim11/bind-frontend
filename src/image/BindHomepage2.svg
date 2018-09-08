@@ -3,31 +3,30 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1280 1024" style="enable-background:new 0 0 1280 1024;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#5600B9;stroke:#B451B7;stroke-miterlimit:10;}
-	.st1{fill:none;}
-	.st2{fill:#FFFFFF;}
-	.st3{font-family:'Lato-Black';}
-	.st4{font-size:12.515px;}
-	.st5{font-size:37.5804px;}
-	.st6{letter-spacing:1.8;}
-	.st7{fill:#5600B9;}
-	.st8{fill:none;stroke:#FFFFFF;stroke-width:7;stroke-miterlimit:10;}
-	.st9{font-size:20px;}
-	.st10{letter-spacing:0.9;}
+	.st0{fill:#100F11;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:7;stroke-miterlimit:10;}
+	.st2{fill:none;}
+	.st3{fill:#FFFFFF;}
+	.st4{font-family:'Lato-Black';}
+	.st5{font-size:41.4178px;}
+	.st6{letter-spacing:0.9;}
+	.st7{font-size:13.793px;}
+	.st8{font-family:'Lato-Bold';}
+	.st9{font-size:25px;}
 </style>
 <g id="Layer_1">
 	<rect x="0.5" y="0.5" class="st0" width="1280" height="1024"/>
 </g>
 <g id="Logo">
-	<rect x="565" y="434.9" class="st1" width="213.5" height="103.2"/>
-	<text transform="matrix(1.1323 0 0 1 565.0381 471.1611)" class="st2 st3 st4">Not Everyone gets referral fee</text>
-	<rect x="489.9" y="117" class="st1" width="216" height="103.2"/>
-	<text transform="matrix(1.1323 0 0 1 489.9473 153.2793)" class="st2 st3 st4">Not All Jobs are posted online</text>
-	<rect x="435.9" y="295.7" class="st1" width="220.4" height="48.4"/>
-	<text transform="matrix(1.1323 0 0 1 435.9209 323.8789)"><tspan x="0" y="0" class="st2 st3 st5 st6">B</tspan><tspan x="27" y="0" class="st7 st3 st5 st6">....</tspan><tspan x="70.5" y="0" class="st2 st3 st5 st6">I  N  D</tspan></text>
-	<rect x="492.5" y="168.6" class="st8" width="281" height="280.6"/>
-	<rect x="563.9" y="580.7" class="st1" width="152.1" height="48.4"/>
-	<text transform="matrix(1.1323 0 0 1 563.9214 595.7041)" class="st2 st3 st9 st10">get started</text>
-	<rect x="481" y="282" class="st7" width="23" height="62"/>
+	<rect x="478.6" y="174.5" class="st1" width="270" height="269.6"/>
+	<rect x="433.9" y="302.9" class="st2" width="242.9" height="53.3"/>
+	<text transform="matrix(1.1323 0 0 1 433.9209 333.9033)"><tspan x="0" y="0" class="st3 st4 st5 st6">B</tspan><tspan x="29.4" y="0" class="st0 st4 st5 st6">.. </tspan><tspan x="63.7" y="0" class="st3 st4 st5 st6">I  N  D</tspan></text>
+	<rect x="478.6" y="431.8" class="st2" width="235.2" height="49.2"/>
+	<text transform="matrix(1.1323 0 0 1 478.5884 471.7441)" class="st3 st4 st7">Not Everyone gets referral fee</text>
+	<rect x="522.8" y="120" class="st2" width="238" height="57"/>
+	<text transform="matrix(1.1323 0 0 1 522.8306 159.9839)" class="st3 st4 st7">Not All Jobs are posted online</text>
+	<rect x="550.9" y="603.9" class="st2" width="165.1" height="53.3"/>
+	<text transform="matrix(1.1323 0 0 1 550.9214 622.4355)" class="st3 st8 st9 st6">get started</text>
+	<rect x="474" y="296" class="st0" width="9" height="46"/>
 </g>
 </svg>

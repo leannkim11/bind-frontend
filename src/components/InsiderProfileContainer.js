@@ -3,16 +3,12 @@ import SideBar from "./SideBar";
 import NavBar from "./NavBar";
 import JobCard from "./JobCard";
 export default class InsiderProfileContainer extends Component {
-  componentWillMount() {
-    console.log("123");
-  }
-
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar userType={this.props.userType} />
         <SideBar />
-        <div class="card-deck">
+        <div className="card-deck">
           <JobCard />
 
           <div className="post-new">

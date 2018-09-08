@@ -1,49 +1,71 @@
 import React, { Component } from "react";
 
 export default class SignUpForm extends Component {
+  handleFormSubmit = e => {
+    e.preventDefault();
+
+    fetch("http://localhost:3000/api/v1/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: this.props.name,
+        password: this.props.password,
+        email: this.props.email
+      })
+    })
+      .then(res => res.json())
+      .then(json => localStorage.setItem("token", json.jwt))
+      .then((window.location = "http://localhost:4000/login"));
+  };
+
   render() {
     return (
       <div>
-        <img src="./bind.jpeg" alt="" id="mainlogo" className="center" />
-        <form id="sign-up-form" action="/">
-          <h3>Sign Up Below!</h3>
+        <form id="sign-up-form" onSubmit={this.handleFormSubmit}>
+          <img src="./bind-logo.svg" alt="" id="sign-up-logo" />
+          <h5>start networking with the right people</h5>
+          <br />
           <div class="form-group">
-            <label for="name">Name</label>
+            {/* <label for="name">Name</label> */}
             <input
-              col-5
-              type="text"
+              name="name"
               class="form-control"
-              id="exampleInputName"
               placeholder="Name"
+              value={this.props.name}
+              onChange={this.props.handleFormChange}
             />
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            {/* <label for="exampleInputEmail1">Email address</label> */}
             <input
-              col-5
-              type="email"
+              name="email"
               class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Email"
+              value={this.props.email}
+              onChange={this.props.handleFormChange}
             />
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            {/* <label for="exampleInputPassword1">Password</label> */}
             <input
-              col-5
+              name="password"
               type="password"
               class="form-control"
-              id="exampleInputPassword1"
               placeholder="Password"
+              value={this.props.password}
+              onChange={this.props.handleFormChange}
             />
           </div>
-
-          <a href="/">
-            <button type="submit" class="btn btn-primary">
-              Sign Up
-            </button>
-          </a>
+          <br />
+          <div className="form-group">
+            <a href="/">
+              <button type="submit" class="btn btn-outline-secondary">
+                Sign Up
+              </button>
+            </a>
+          </div>
         </form>
       </div>
     );

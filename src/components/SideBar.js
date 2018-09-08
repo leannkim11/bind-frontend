@@ -7,13 +7,13 @@ export default class SideBar extends Component {
     return (
       <div className="container" id="seeker-sidebar">
         <div className="form-group row">
-          <label for="staticEmail" className="col-sm-2 col-form-label">
+          <label htmlFor="staticEmail" className="col-sm-2 col-form-label">
             Industry
           </label>
           <div className="col-sm-10">
             <input
               type="text"
-              readonly
+              readOnly
               className="form-control-plaintext"
               id="staticEmail"
               value="Industry Placeholder"

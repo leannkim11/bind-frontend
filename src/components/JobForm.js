@@ -28,6 +28,28 @@ export default class JobForm extends Component {
     });
   };
 
+  postNew = () => {
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        user_id: this.props.currentUser["id"],
+        position: this.state.position,
+        city: this.state.city,
+        state: this.state.state,
+        industry: this.state.industry,
+        desription: this.state.description,
+        my_position: this.state.yourPosition,
+        company: this.state.company
+      }
+    };
+    fetch("http://localhost:3000/api/v1/jobs", config)
+      .then(res => res.json())
+      .then(data => console.log(data));
+  };
+
   render() {
     return (
       <div>
@@ -84,14 +106,14 @@ export default class JobForm extends Component {
           </div>
           <br />
           {/*Industry*/}
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="inputGroupSelect01">
                 Industry
               </label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Choose...</option>
+            <select className="custom-select" id="inputGroupSelect01">
+              <option value="">Choose...</option>
               {this.mapIndustry()}
             </select>
           </div>
@@ -107,7 +129,7 @@ export default class JobForm extends Component {
           <br />
           {/*My Position*/}
           <div className="form-group">
-            <label for="exampleFormControlInput1">Your Position</label>
+            <label htmlFor="exampleFormControlInput1">Your Position</label>
             <input
               type="text"
               className="form-control"
@@ -120,7 +142,12 @@ export default class JobForm extends Component {
           </div>
           <br />
           {/*Button*/}
-          <button type="button" class="btn btn-outline-info" id="edit-submit">
+          <button
+            type="button"
+            className="btn btn-outline-info"
+            id="edit-submit"
+            onClick={this.postNew}
+          >
             Save
           </button>
         </form>

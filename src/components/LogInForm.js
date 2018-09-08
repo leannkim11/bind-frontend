@@ -1,77 +1,72 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { withRouter, Redirect, Link } from "react-router";
+import { withRouter } from "react-router";
 import { loginUser } from "../actions/user";
+import { connect } from "react-redux";
 
-export default class LogInForm extends Component {
+class LogInForm extends Component {
+  handleFormSubmit = e => {
+    e.preventDefault();
+    console.log(this.props.history);
+    this.props.loginUser(this.state, this.props.history);
+  };
+
   state = {
     email: "",
     password: ""
   };
 
-  handleFormSubmit = e => {
-    e.preventDefault();
-    console.log("login button clicked");
-
-    fetch("http://localhost:3000/api/v1/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        password: "leannleann",
-        email: "leann@leann.com"
-      })
-    })
-      .then(res => res.json())
-      .then(json => localStorage.setItem("token", json.jwt));
-  };
-
-  handleChange = event => {
+  handleFormChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
+    console.log(this.state);
     return (
       <React.Fragment>
-        <img src="./bind-logo.svg" alt="" id="mainlogo" className="center" />
         <form
           id="sign-up-form"
           action="/loggedin"
           onSubmit={this.handleFormSubmit}
         >
+          <img src="./bind-logo.svg" alt="" id="sign-up-logo" />
           <div className="form-group">
-            <label>Email address</label>
             <input
               name="email"
               className="form-control"
               id="exampleInputEmail1"
-              placeholder="Enter email"
-              value={this.state.email}
-              onChange={this.handleChange}
+              placeholder="Email"
+              value={this.props.email}
+              onChange={this.handleFormChange}
             />
           </div>
           <div className="form-group">
-            <label for="exampleInputPassword1">Password</label>
             <input
               name="password"
+              type="password"
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleChange}
+              value={this.props.password}
+              onChange={this.handleFormChange}
             />
           </div>
-
-          <a href="/loggedin" type="submit" className="btn btn-primary">
-            Submit
-          </a>
-
           <br />
-          <br />
-          <a href="/signup">click here to sign up</a>
+          <div className="form-bottom">
+            <button type="submit" className="btn btn-outline-secondary">
+              Log In
+            </button>
+
+            <br />
+            <br />
+            <a href="/signup">click here to sign up</a>
+          </div>
         </form>
       </React.Fragment>
     );
   }
 }
+
+export default connect(
+  null,
+  { loginUser }
+)(withRouter(LogInForm));

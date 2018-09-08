@@ -1,5 +1,7 @@
-export const loginUser = (email, password) => {
+export const loginUser = (loginInfo, history) => {
   return dispatch => {
+    let { email, password } = loginInfo;
+    // console.log(loginInfo);
     dispatch(authenticatingUser());
     fetch("http://localhost:3000/api/v1/login", {
       method: "POST",
@@ -7,13 +9,14 @@ export const loginUser = (email, password) => {
         "Content-Type": "application/json",
         Accept: "application/json"
       },
-      body: JSON.stringify({ user: { email, password } })
+      body: JSON.stringify({ email, password })
     })
       .then(response => response.json())
       .then(({ user, jwt }) => {
         localStorage.setItem("jwt", jwt);
         dispatch(setCurrentUser(user));
-      });
+      })
+      .then(res => history.push("/login"));
   };
 };
 

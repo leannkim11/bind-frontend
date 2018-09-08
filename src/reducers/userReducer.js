@@ -2,7 +2,6 @@ const defaultState = {
   user: null,
   loggedIn: false,
   authenticatingUser: false,
-  failedLogin: false,
   error: null
 };
 
@@ -22,7 +21,7 @@ const userReducer = (state = defaultState, action) => {
     case "FAILED_LOGIN":
       return {
         ...state,
-        failedLogin: true,
+        loggedIn: false,
         error: action.payload,
         authenticatingUser: false
       };
