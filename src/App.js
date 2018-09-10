@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 
 ////MY COMPONENTS//////
 import Homepage from "./components/Homepage";
-import LogInForm from "./components/LogInForm";
 import SignUpForm from "./components/SignUpForm";
 import UserTypeCard from "./components/UserTypeCard";
 import SeekerProfileContainer from "./components/SeekerProfileContainer";
@@ -16,6 +15,7 @@ import InsiderProfileContainer from "./components/InsiderProfileContainer";
 import SeekerEditForm from "./components/SeekerEditForm";
 import JobForm from "./components/JobForm";
 import MainPage from "./components/MainPage";
+import JobPostContainer from "./components/JobPostContainer";
 /////
 
 class App extends Component {
@@ -28,21 +28,6 @@ class App extends Component {
   //////////LogIn & Sign Up Form //////////////
   handleFormChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-  };
-
-  //////////Change User Type////////////////
-  userTypeSeeker = () => {
-    this.setState({
-      userType: "Seeker"
-    });
-    window.location = "http://localhost:4000/seekerprofile";
-  };
-
-  userTypeInsider = () => {
-    this.setState({
-      userType: "Insider"
-    });
-    window.location = "http://localhost:4000/insiderprofile";
   };
 
   //////////////FETCH -- LOG IN////////////////
@@ -67,12 +52,6 @@ class App extends Component {
   // );
   // .then(data => console.log(this.state.currentUser));
   // }
-  ///////SET CURRENTUSER////////
-  setCurrentUser = res => {
-    this.setState({
-      currentUser: res
-    });
-  };
 
   render() {
     return (
@@ -121,9 +100,9 @@ class App extends Component {
               )}
             />
             <Route exact path="/editjob" component={JobForm} />
+            <Route exact path="/jobs" component={JobPostContainer} />
           </Switch>
         </Router>
-        {/* {console.log(this.state.currentUser)} */}
       </div>
     );
   }

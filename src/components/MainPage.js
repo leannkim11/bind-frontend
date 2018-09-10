@@ -10,7 +10,7 @@ class MainPage extends Component {
     this.props.fetchCurrentUser();
   }
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return <div>{localStorage.jwt ? <UserTypeCard /> : <LogInForm />}</div>;
   }
 }

@@ -6,8 +6,9 @@ import { connect } from "react-redux";
 class LogInForm extends Component {
   handleFormSubmit = e => {
     e.preventDefault();
-    console.log(this.props.history);
+    // console.log(this.props.history);
     this.props.loginUser(this.state, this.props.history);
+    // this.setState({ email: "", password: "" });
   };
 
   state = {
@@ -20,7 +21,7 @@ class LogInForm extends Component {
   };
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <React.Fragment>
         <form
@@ -66,7 +67,10 @@ class LogInForm extends Component {
   }
 }
 
+// function mapStateToProps = ({ userReducer: { authenticatingUser, setCurrentUser}}) => {}
+//const mapDispatchToProps = (dispatch) => { loginUser: bindActionCreators(loginUser, dispatch)}
 export default connect(
   null,
-  { loginUser }
+  // mapStateToProps, mapDispatchToProps
+  { loginUser: loginUser }
 )(withRouter(LogInForm));

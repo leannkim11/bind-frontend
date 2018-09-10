@@ -1,7 +1,7 @@
 export const loginUser = (loginInfo, history) => {
   return dispatch => {
     let { email, password } = loginInfo;
-    // console.log(loginInfo);
+    console.log(loginInfo);
     dispatch(authenticatingUser());
     fetch("http://localhost:3000/api/v1/login", {
       method: "POST",
@@ -16,7 +16,8 @@ export const loginUser = (loginInfo, history) => {
         localStorage.setItem("jwt", jwt);
         dispatch(setCurrentUser(user));
       })
-      .then(res => history.push("/login"));
+
+      .then(history.push("/login"));
   };
 };
 
