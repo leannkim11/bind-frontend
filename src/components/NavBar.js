@@ -17,7 +17,7 @@ const NavBar = props => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="/login">
-          {userTypeSelection()}
+          Change User Type
         </a>
 
         <button className="navbar-toggler" type="button">
@@ -41,7 +41,7 @@ const NavBar = props => {
               </a>
             </li> */}
             <li className="nav-item">
-              <button className="nav-link" onClick={this.handleLogOut}>
+              <button className="nav-link" onClick={handleLogOut}>
                 Log Out
               </button>
             </li>

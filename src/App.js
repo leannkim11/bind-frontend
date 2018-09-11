@@ -6,8 +6,11 @@ import { Switch, Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 
+import * as actions from './actions'
+
 ////MY COMPONENTS//////
 import Homepage from "./components/Homepage";
+import LogInForm from "./components/LogInForm";
 import SignUpForm from "./components/SignUpForm";
 import UserTypeCard from "./components/UserTypeCard";
 import SeekerProfileContainer from "./components/SeekerProfileContainer";
@@ -19,39 +22,10 @@ import JobPostContainer from "./components/JobPostContainer";
 /////
 
 class App extends Component {
-  state = {
-    name: "",
-    currentUser: "",
-    userType: ""
-  };
 
-  //////////LogIn & Sign Up Form //////////////
-  handleFormChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  //////////////FETCH -- LOG IN////////////////
-  // componentDidMount() {
-  //   // debugger;
-  //   const token = localStorage.getItem("jwt");
-  //   const currentUserFetchObj = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token}`
-  //     }
-  //   };
-  //   fetch("http://localhost:3000/api/v1/loggedin", currentUserFetchObj)
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-  // .then(data => localStorage.setItem("jwt", data));
-  // .then(data =>
-  //   this.setState({
-  //     currentUser: data
-  //   })
-  // );
-  // .then(data => console.log(this.state.currentUser));
-  // }
+  componentDidMount() {
+    this.props.fetchCurrentUser()
+  }
 
   render() {
     return (
@@ -59,7 +33,8 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Homepage} />
-            <Route exact path="/login" component={MainPage} />
+            <Route exact path="/login" component={LogInForm} />
+            <Route exact path="/selectuser" component={UserTypeCard} />
             <Route
               exact
               path="/login"
@@ -70,10 +45,7 @@ class App extends Component {
               path="/signup"
               render={rendorprops => (
                 <SignUpForm
-                  name={this.state.name}
-                  email={this.state.email}
-                  password={this.state.password}
-                  handleFormChange={this.handleFormChange}
+
                 />
               )}
             />
@@ -81,14 +53,14 @@ class App extends Component {
               exact
               path="/seekerprofile"
               render={renderprops => (
-                <SeekerProfileContainer userType={this.state.userType} />
+                <SeekerProfileContainer />
               )}
             />
             <Route
               exact
               path="/insiderprofile"
               render={renderprops => (
-                <InsiderProfileContainer userType={this.state.userType} />
+                <InsiderProfileContainer />
               )}
             />
             <Route exact path="/seekeredit" component={SeekerEditForm} />
@@ -96,7 +68,7 @@ class App extends Component {
               exact
               path="/postjob"
               render={renderprops => (
-                <JobForm currentUser={this.state.currentUser} />
+                <JobForm />
               )}
             />
             <Route exact path="/editjob" component={JobForm} />
@@ -108,4 +80,5 @@ class App extends Component {
   }
 }
 
-export default App;
+
+export default connect(null, actions)(App)

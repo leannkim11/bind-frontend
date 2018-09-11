@@ -34,8 +34,8 @@ export default class JobForm extends Component {
       headers: {
         "Content-Type": "application/json"
       },
-      body: {
-        user_id: this.props.currentUser["id"],
+      body: JSON.stringify({
+        user_id: 7,
         position: this.state.position,
         city: this.state.city,
         state: this.state.state,
@@ -43,7 +43,7 @@ export default class JobForm extends Component {
         desription: this.state.description,
         my_position: this.state.yourPosition,
         company: this.state.company
-      }
+      })
     };
     fetch("http://localhost:3000/api/v1/jobs", config)
       .then(res => res.json())

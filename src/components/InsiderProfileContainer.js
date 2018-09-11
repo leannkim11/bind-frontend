@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import SideBar from "./SideBar";
 import NavBar from "./NavBar";
 import JobCard from "./JobCard";
+
 export default class InsiderProfileContainer extends Component {
+
   render() {
     return (
       <div>
-        <NavBar userType={this.props.userType} />
+        <NavBar />
         <SideBar />
         <div className="card-deck">
-          <JobCard />
+          {/* <JobCard /> */}
 
           <div className="post-new">
             <a href="/postjob" className="btn btn-outline-info">

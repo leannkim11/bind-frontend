@@ -134,3 +134,9 @@
   bottom: 40px;
   left: 130px;
 }
+
+.job-card {
+  border-style: groove;
+  border-radius: 5px;
+  margin: 30px;
+}

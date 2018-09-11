@@ -2,6 +2,7 @@ import { withRouter } from "react-router";
 import { connect } from "react-redux";
 import { setSeeker, setInsider } from "../actions/index";
 import React, { Component } from "react";
+import withAuth from "../hoc/withAuth";
 
 const UserTypeCard = props => {
   return (
@@ -53,6 +54,7 @@ const UserTypeCard = props => {
               >
                 Get Referral Fee
               </button>
+              {console.log(props.user)}
             </div>
           </div>
         </div>
@@ -64,7 +66,8 @@ const UserTypeCard = props => {
 function mapStateToProps(state) {
   return {
     enteredAsSeeker: state.enteredAsSeeker,
-    enteredAsInsider: state.enteredAsInsider
+    enteredAsInsider: state.enteredAsInsider,
+    user: state.user.user
   };
 }
 
@@ -75,9 +78,11 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(UserTypeCard)
+export default withAuth(
+  withRouter(
+    connect(
+      mapStateToProps,
+      mapDispatchToProps
+    )(UserTypeCard)
+  )
 );
