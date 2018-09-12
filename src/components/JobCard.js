@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class JobCard extends Component {
+class JobCard extends Component {
   render() {
     return (
       <React.Fragment>
@@ -16,16 +17,22 @@ export default class JobCard extends Component {
               {this.props.job.city}, {this.props.job.state}
             </h5>
             <p className="card-text">{this.props.job.description}</p>
-            <h5>
+            <a href={"mailto:" + this.props.job.user.email + "?body=Hi " + this.props.job.user.name + ","}>
               Get in contact with {this.props.job.my_position} at{" "}
               {this.props.job.company}
-            </h5>
-            {/* <a href="/editjob" className="btn btn-outline-info">
-              Edit
-            </a> */}
+            </a>
+            {console.log(this.props)}
           </div>
+
         </div>
       </React.Fragment>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.user.user
+  }
+}
+export default connect(mapStateToProps)(JobCard)

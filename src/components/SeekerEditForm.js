@@ -33,7 +33,8 @@ export default class SeekerEditForm extends Component {
         <form className="bind-form">
           {/*Attachment*/}
           <div className="form-group">
-            <label for="exampleFormControlFile1">Profile Picture</label>
+            <label htmlFor="exampleFormControlFile1">Profile Picture</label>
+
             <input
               type="file"
               className="form-control-file"
@@ -43,7 +44,7 @@ export default class SeekerEditForm extends Component {
           <br />
           {/*LinkedIn*/}
           <div className="form-group">
-            <label for="exampleFormControlInput1">LinkedIn Url</label>
+            <label htmlFor="exampleFormControlInput1">LinkedIn Url</label>
             <input
               type="text"
               className="form-control"
@@ -91,9 +92,9 @@ export default class SeekerEditForm extends Component {
                   name="gridRadios"
                   id="gridRadios1"
                   value="option1"
-                  checked
+
                 />
-                <label className="form-check-label" for="gridRadios1">
+                <label className="form-check-label" htmlFor="gridRadios1">
                   Yes, I am willing to relocate
                 </label>
               </div>
@@ -105,7 +106,7 @@ export default class SeekerEditForm extends Component {
                   id="gridRadios2"
                   value="option2"
                 />
-                <label className="form-check-label" for="gridRadios2">
+                <label className="form-check-label" htmlFor="gridRadios2">
                   No, I do not wish to relocate
                 </label>
               </div>
@@ -113,13 +114,13 @@ export default class SeekerEditForm extends Component {
           </div>
           <br />
           {/*Industry*/}
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="inputGroupSelect01">
                 Industry
               </label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select className="custom-select" id="inputGroupSelect01">
               {this.mapIndustry()}
             </select>
           </div>
@@ -135,7 +136,7 @@ export default class SeekerEditForm extends Component {
           <br />
           {/*Attachment*/}
           <div className="form-group">
-            <label for="exampleFormControlFile1">Resume</label>
+            <label htmlFor="exampleFormControlFile1">Resume</label>
             <input
               type="file"
               className="form-control-file"
@@ -144,7 +145,7 @@ export default class SeekerEditForm extends Component {
           </div>
           <br />
           {/*Button*/}
-          <button type="button" class="btn btn-outline-info" id="edit-submit">
+          <button type="button" className="btn btn-outline-info" id="edit-submit">
             Save
           </button>
         </form>

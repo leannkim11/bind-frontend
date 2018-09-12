@@ -31,36 +31,40 @@ class JobForm extends Component {
     });
   };
 
-  postNew = () => {
-    // console.log(this.state)
-    const config = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem("jwt")}`
-      },
-      body: JSON.stringify({
-        user_id: this.props.user.user_id,
-        position: this.state.position,
-        city: this.state.city,
-        state: this.state.state,
-        industry: this.state.industryfield,
-        desription: this.state.description,
-        my_position: this.state.yourPosition,
-        company: this.state.company
-      })
-    };
-    fetch("http://localhost:3000/api/v1/jobs", config)
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .then((window.location = "http://localhost:4000/insiderprofile"));
+  postNew = (event) => {
+    event.preventDefault()
+    // debugger
+    console.log(this.props.user)
+    // const config = {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Authorization": `Bearer ${localStorage.getItem("jwt")}`
+    //   },
+    //   body: JSON.stringify({
+    //     job: {
+    //       user_id: this.props.user.profile.id,
+    //       position: this.state.position,
+    //       city: this.state.city,
+    //       state: this.state.state,
+    //       industry: this.state.industryfield,
+    //       description: this.state.description,
+    //       my_position: this.state.yourPosition,
+    //       company: this.state.company
+    //     }
+    //   })
+    // };
+    // fetch("http://localhost:3000/api/v1/jobs", config)
+    //   .then(res => res.json())
+    //   .then(data => console.log(data))
+    //   .then((window.location = "http://localhost:4000/insiderprofile"));
   };
 
   render() {
     return (
       <div>
         <NavBar />
-        <form className="bind-form">
+        <form className="bind-form" onSubmit={this.postNew}>
           {/*Position*/}
           <div className="form-row">
             <div className="col">
@@ -156,14 +160,15 @@ class JobForm extends Component {
           <br />
           {/*Button*/}
           <button
-            type="button"
+            type="submit"
             className="btn btn-outline-info"
             id="edit-submit"
-            onClick={this.postNew}
+
           >
             Save
           </button>
         </form>
+
       </div>
     );
   }
