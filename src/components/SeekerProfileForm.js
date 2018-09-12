@@ -1,18 +1,50 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
 import industry from "./industry";
+import { connect } from "react-redux";
 
-export default class SeekerEditForm extends Component {
+class SeekerProfileForm extends Component {
   state = {
-    industry: industry,
+    mapindustry: industry,
+    industryfield: "",
     linkedin: "",
     city: "",
     state: "",
-    personalstatement: ""
+    personalstatement: "",
+    willing_to_relocate: null
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("jwt")}`
+      },
+      body: JSON.stringify({
+        profile: {
+          user_id: this.props.user.id,
+          linkedin: this.state.linkedin,
+          city: this.state.city,
+          state: this.state.state,
+          personal_statement: this.state.personalstatement,
+          willing_to_relocate: this.state.willing_to_relocate
+        }
+      })
+    }
+
+    fetch("http://localhost:3000/api/v1/profiles", config)
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .then((window.location = "http://localhost:4000/seekerprofile"));
+  }
+
+
+
   mapIndustry = () => {
-    let mappedIndustry = this.state.industry.map(i => (
+    let mappedIndustry = this.state.mapindustry.map(i => (
       <option value={i.name} key={i.name}>
         {i.name}
       </option>
@@ -30,7 +62,7 @@ export default class SeekerEditForm extends Component {
     return (
       <div>
         <NavBar />
-        <form className="bind-form">
+        <form className="bind-form" onSubmit={this.handleSubmit}>
           {/*Attachment*/}
           <div className="form-group">
             <label htmlFor="exampleFormControlFile1">Profile Picture</label>
@@ -83,16 +115,16 @@ export default class SeekerEditForm extends Component {
           <br />
           {/*Radio*/}
           <div className="row">
-            <legend className="col-form-label col-sm-2 pt-0">Relocate</legend>
+            <legend className="col-form-label col-sm-2 pt-0" >Relocate</legend>
             <div className="col-sm-10">
               <div className="form-check">
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="gridRadios"
+                  name="willing_to_relocate"
+                  onChange={this.handleChange}
                   id="gridRadios1"
-                  value="option1"
-
+                  value={true}
                 />
                 <label className="form-check-label" htmlFor="gridRadios1">
                   Yes, I am willing to relocate
@@ -102,9 +134,9 @@ export default class SeekerEditForm extends Component {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="gridRadios"
+                  name="willing_to_relocate" onChange={this.handleChange}
                   id="gridRadios2"
-                  value="option2"
+                  value={false}
                 />
                 <label className="form-check-label" htmlFor="gridRadios2">
                   No, I do not wish to relocate
@@ -120,7 +152,11 @@ export default class SeekerEditForm extends Component {
                 Industry
               </label>
             </div>
-            <select className="custom-select" id="inputGroupSelect01">
+            <select
+              className="custom-select"
+              id="inputGroupSelect01"
+              name="industryfield"
+              onChange={this.handleChange}>
               {this.mapIndustry()}
             </select>
           </div>
@@ -145,11 +181,21 @@ export default class SeekerEditForm extends Component {
           </div>
           <br />
           {/*Button*/}
-          <button type="button" className="btn btn-outline-info" id="edit-submit">
+          <button type="submit" className="btn btn-outline-info" id="edit-submit">
             Save
           </button>
         </form>
+        {/* {console.log(this.state.willing_to_relocate)} */}
       </div>
     );
   }
 }
+
+
+function mapStateToProps(state) {
+  return {
+    user: state.user.user
+  };
+}
+
+export default connect(mapStateToProps)(SeekerProfileForm)

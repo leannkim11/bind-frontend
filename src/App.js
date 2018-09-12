@@ -15,10 +15,10 @@ import SignUpForm from "./components/SignUpForm";
 import UserTypeCard from "./components/UserTypeCard";
 import SeekerProfileContainer from "./components/SeekerProfileContainer";
 import InsiderProfileContainer from "./components/InsiderProfileContainer";
-import SeekerEditForm from "./components/SeekerEditForm";
+import SeekerProfileForm from "./components/SeekerProfileForm";
 import JobForm from "./components/JobForm";
-import MainPage from "./components/MainPage";
 import JobPostContainer from "./components/JobPostContainer";
+import SeekerProfileEdit from './components/SeekerProfileEdit'
 /////
 
 class App extends Component {
@@ -63,7 +63,7 @@ class App extends Component {
                 <InsiderProfileContainer />
               )}
             />
-            <Route exact path="/seekeredit" component={SeekerEditForm} />
+            <Route exact path="/seekeredit" component={SeekerProfileEdit} />
             <Route
               exact
               path="/postjob"
@@ -72,6 +72,7 @@ class App extends Component {
               )}
             />
             <Route exact path="/editjob" component={JobForm} />
+            <Route exact path="/seekerprofileform" component={SeekerProfileForm} />
             <Route exact path="/jobs" component={JobPostContainer} />
           </Switch>
         </Router>

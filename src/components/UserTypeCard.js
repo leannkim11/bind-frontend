@@ -5,6 +5,11 @@ import React, { Component } from "react";
 import withAuth from "../hoc/withAuth";
 
 const UserTypeCard = props => {
+  const doesProfileExist = () => {
+    // console.log(props.user)
+    props.user.profile ? props.history.push("/seekerprofile") : props.history.push("/seekerprofileform")
+  }
+
   return (
     <div>
       <h3 id="welcome-text">Welcome {props.user.name}</h3>
@@ -24,7 +29,8 @@ const UserTypeCard = props => {
                 id="seeker-button"
                 onClick={() => {
                   props.setSeeker();
-                  props.history.push("/seekerprofile");
+                  doesProfileExist()
+                  // props.history.push("/seekerprofileform");
                 }}
               >
                 Start Networking

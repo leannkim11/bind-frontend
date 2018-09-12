@@ -7,7 +7,7 @@ const UserProfile = props => {
   }
 
   const returnLinkedIn = () => {
-    return props.user && props.user.profile.linkedin ? <a href={props.user.profile.linkedin}>LinkedIn</a> : null
+    return props.user && props.user.profile.linkedin ? <a href={props.user.profile.linkedin}>LinkedIn</a> : ""
   }
 
   const returnLocation = () => {
