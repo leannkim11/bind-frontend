@@ -101,7 +101,7 @@
 }
 
 .post-new {
-  position: absolute;
+
   margin: auto;
 }
 
@@ -139,4 +139,17 @@
   border-style: groove;
   border-radius: 5px;
   margin: 30px;
+}
+
+#welcome-text {
+  text-align: center;
+  margin-top: 1em;
+}
+
+#log-out-button {
+  float: right;
+}
+
+.delete-job {
+  margin: auto;
 }

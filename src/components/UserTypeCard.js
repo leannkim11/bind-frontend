@@ -7,6 +7,7 @@ import withAuth from "../hoc/withAuth";
 const UserTypeCard = props => {
   return (
     <div>
+      <h3 id="welcome-text">Welcome {props.user.name}</h3>
       <div className="row">
         <div className="col-sm-6">
           <div className="card" id="leftcard">
@@ -54,7 +55,7 @@ const UserTypeCard = props => {
               >
                 Get Referral Fee
               </button>
-              {console.log(props.user)}
+              {/* {console.log(props.user)} */}
             </div>
           </div>
         </div>

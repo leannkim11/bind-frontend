@@ -9,7 +9,7 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_CURRENT_USER":
-      console.log('SET_CURRENT_USER')
+      // console.log('SET_CURRENT_USER')
       return {
         ...state,
         user: action.payload,
@@ -17,10 +17,10 @@ const userReducer = (state = initialState, action) => {
         authenticatingUser: false
       };
     case "AUTHENTICATING_USER":
-      console.log('AUTHENTICATING_USER')
+      // console.log('AUTHENTICATING_USER')
       return { ...state, authenticatingUser: true };
     case "AUTHENTICATED_USER":
-      console.log('AUTHENTICATED_USER')
+      // console.log('AUTHENTICATED_USER')
       return { ...state, authenticatingUser: false };
     case "FAILED_LOGIN":
       return {

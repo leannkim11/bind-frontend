@@ -11,14 +11,14 @@ const withAuth = WrappedComponent => {
     }
 
     render() {
-      console.log('withAuth', this.props, localStorage.getItem("jwt"), this.props.loggedIn);
+      // console.log('withAuth', this.props, localStorage.getItem("jwt"), this.props.loggedIn);
       if (localStorage.getItem("jwt") && this.props.loggedIn) {
-        console.log('withAuth Loop?');
+        // console.log('withAuth Loop?');
         return <WrappedComponent />;
         //   } else if (localStorage.getItem("jwt") && this.props.authenticatingUser) {
         //     return <Loader active inline="centered" />;
       } else {
-        console.log('withAuth Redirect?');
+        // console.log('withAuth Redirect?');
         return <Redirect to="/login" />;
       }
     }

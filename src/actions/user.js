@@ -52,10 +52,10 @@ export const fetchCurrentUser = () => {
         }
       })
       .then(user => {
-        console.log('fetchCurrentUser', localStorage.getItem("jwt"), user)
+        // console.log('fetchCurrentUser', localStorage.getItem("jwt"), user)
         // localStorage.setItem("jwt", res.jwt);
         dispatch(setCurrentUser(user))
-        console.log('after setting')
+        // console.log('after setting')
         // dispatch({ type: 'AUTHENTICATED_USER' })
       })
       .catch(r => r.json().then(e => dispatch(failedLogin(e.message))));

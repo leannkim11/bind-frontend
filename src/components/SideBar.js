@@ -6,22 +6,9 @@ export default class SideBar extends Component {
   render() {
     return (
       <div className="container" id="seeker-sidebar">
-        <div className="form-group row">
-          <label htmlFor="staticEmail" className="col-sm-2 col-form-label">
-            Industry
-          </label>
-          <div className="col-sm-10">
-            <input
-              type="text"
-              readOnly
-              className="form-control-plaintext"
-              id="staticEmail"
-              value="Industry Placeholder"
-            />
-          </div>
-        </div>
         <Search />
-        <Bookmark />
+        {/* <Bookmark /> */}
+        <p>Search Results</p>
       </div>
     );
   }

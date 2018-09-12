@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
-import SideBar from "./SideBar";
+import Search from "./Search";
 import UserProfile from "./UserProfile";
 
 export default class SeekerProfileContainer extends Component {
@@ -8,7 +8,7 @@ export default class SeekerProfileContainer extends Component {
     return (
       <React.Fragment>
         <NavBar />
-        <SideBar />
+        <Search />
         <UserProfile />
       </React.Fragment>
     );

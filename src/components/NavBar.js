@@ -35,20 +35,20 @@ const NavBar = props => {
                 Jobs
               </a>
             </li>
-            {/* <li className="nav-item">
-              <a className="nav-link" href="#">
-                Message
-              </a>
-            </li> */}
             <li className="nav-item">
-              <button className="nav-link" onClick={handleLogOut}>
-                Log Out
-              </button>
+              <a className="nav-link" href="#">
+                Profiles
+              </a>
             </li>
           </ul>
+          <div id="log-out-button">
+            <button className="nav-link" onClick={handleLogOut}>
+              Log Out
+              </button>
+          </div>
         </div>
       </nav>
-    </div>
+    </div >
   );
 };
 

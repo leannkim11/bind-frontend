@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import NavBar from "./NavBar";
 import industry from "./industry";
+import { connect } from "react-redux";
+import withAuth from "../hoc/withAuth";
 
-export default class JobForm extends Component {
+class JobForm extends Component {
   state = {
-    industry: industry,
+    mapindustry: industry,
+    industryfield: "",
     position: "",
     company: "",
     city: "",
@@ -14,7 +17,7 @@ export default class JobForm extends Component {
   };
 
   mapIndustry = () => {
-    let mappedIndustry = this.state.industry.map(i => (
+    let mappedIndustry = this.state.mapindustry.map(i => (
       <option value={i.name} key={i.name}>
         {i.name}
       </option>
@@ -29,17 +32,19 @@ export default class JobForm extends Component {
   };
 
   postNew = () => {
+    // console.log(this.state)
     const config = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("jwt")}`
       },
       body: JSON.stringify({
-        user_id: 7,
+        user_id: this.props.user.user_id,
         position: this.state.position,
         city: this.state.city,
         state: this.state.state,
-        industry: this.state.industry,
+        industry: this.state.industryfield,
         desription: this.state.description,
         my_position: this.state.yourPosition,
         company: this.state.company
@@ -47,7 +52,8 @@ export default class JobForm extends Component {
     };
     fetch("http://localhost:3000/api/v1/jobs", config)
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => console.log(data))
+      .then((window.location = "http://localhost:4000/insiderprofile"));
   };
 
   render() {
@@ -112,8 +118,15 @@ export default class JobForm extends Component {
                 Industry
               </label>
             </div>
-            <select className="custom-select" id="inputGroupSelect01">
+            <select
+              className="custom-select"
+              id="inputGroupSelect01"
+              value={this.state.industryfield}
+              name="industryfield"
+              onChange={this.handleChange}>
               <option value="">Choose...</option>
+              {/* <option value="hi">hi.</option>
+              <option value="hey">hey...</option> */}
               {this.mapIndustry()}
             </select>
           </div>
@@ -155,3 +168,11 @@ export default class JobForm extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    user: state.user.user
+  };
+}
+
+export default withAuth(connect(mapStateToProps)(JobForm))
