@@ -104,8 +104,7 @@
 }
 
 .post-new {
-
-  margin: auto;
+  margin-left: 1.2%;
 }
 
 #profile-pic {
@@ -155,4 +154,9 @@
 
 .delete-job {
   margin: auto;
+}
+
+.delete-button {
+  margin-left: 1%;
+  margin-bottom: 1%;
 }

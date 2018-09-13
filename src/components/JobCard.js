@@ -21,7 +21,7 @@ class JobCard extends Component {
               Get in contact with {this.props.job.my_position} at{" "}
               {this.props.job.company}
             </a>
-            {console.log(this.props)}
+            {/* {console.log(this.props)} */}
           </div>
 
         </div>

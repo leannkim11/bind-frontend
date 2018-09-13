@@ -66,11 +66,13 @@ class InsiderProfileContainer extends Component {
           </h5>
           <p className="card-text">{job.description}</p>
         </div>
-        <button
-          value={job.id}
-          className="delete-job"
-          onClick={this.deletePost}
-        >delete</button>
+        <div class="delete-button">
+          <button
+            value={job.id}
+            className="delete-job"
+            onClick={this.deletePost}
+          >delete</button>
+        </div>
       </div>))
     return myjobsarr
   }
