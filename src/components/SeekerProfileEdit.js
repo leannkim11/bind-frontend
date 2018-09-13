@@ -37,7 +37,8 @@ class SeekerProfileEdit extends Component {
                     city: this.state.city,
                     state: this.state.state,
                     personal_statement: this.state.personalstatement,
-                    willing_to_relocate: this.state.willing_to_relocate
+                    willing_to_relocate: this.state.willing_to_relocate,
+                    industry: this.state.industryfield
                 }
             })
         }

@@ -15,3 +15,9 @@ export const addJobPost = jobData => ({
   type: "ADD_JOB_POST",
   payload: jobData
 });
+
+
+export const deleteJobPost = jobData => ({
+  type: "DELETE_JOB_POST",
+  payload: jobData
+});

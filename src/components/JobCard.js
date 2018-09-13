@@ -17,7 +17,7 @@ class JobCard extends Component {
               {this.props.job.city}, {this.props.job.state}
             </h5>
             <p className="card-text">{this.props.job.description}</p>
-            <a href={"mailto:" + this.props.job.user.email + "?body=Hi " + this.props.job.user.name + ","}>
+            <a href={"mailto:" + this.props.job.user.email + "?subject=FromBind &body=Hi " + this.props.job.user.name + ","}>
               Get in contact with {this.props.job.my_position} at{" "}
               {this.props.job.company}
             </a>

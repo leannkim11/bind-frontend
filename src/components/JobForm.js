@@ -3,6 +3,8 @@ import NavBar from "./NavBar";
 import industry from "./industry";
 import { connect } from "react-redux";
 import withAuth from "../hoc/withAuth";
+import { addJobPost } from "../actions/index"
+import { bindActionCreators } from "redux";
 
 class JobForm extends Component {
   state = {
@@ -56,7 +58,8 @@ class JobForm extends Component {
     };
     fetch("http://localhost:3000/api/v1/jobs", config)
       .then(res => res.json())
-      .then(data => console.log(data))
+      // .then(console.log(this.props))
+      .then(data => addJobPost(data))
       .then((window.location = "http://localhost:4000/insiderprofile"));
   };
 
@@ -174,10 +177,15 @@ class JobForm extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     user: state.user.user
+    // job: state.user.jobs
   };
+}
+
+const mapDispatchToProps = dispatch => {
+  addJobPost: bindActionCreators(addJobPost, dispatch)
 }
 
 export default withAuth(connect(mapStateToProps)(JobForm))

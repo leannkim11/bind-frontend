@@ -31,6 +31,7 @@ const UserProfile = props => {
       <p>Current Location: {returnLocation()}</p>
       <br />
       <p>Industry: {returnIndustry()}</p>
+      {/* <p>Personal Statement: {returnPersonalStatement()}</p> */}
       <br />
       <a href="./seekeredit" className="btn btn-outline-info">
 

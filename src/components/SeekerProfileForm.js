@@ -10,7 +10,7 @@ class SeekerProfileForm extends Component {
     linkedin: "",
     city: "",
     state: "",
-    personalstatement: "",
+    personal_statement: "",
     willing_to_relocate: null
   };
 
@@ -29,8 +29,9 @@ class SeekerProfileForm extends Component {
           linkedin: this.state.linkedin,
           city: this.state.city,
           state: this.state.state,
-          personal_statement: this.state.personalstatement,
-          willing_to_relocate: this.state.willing_to_relocate
+          personal_statement: this.state.personal_statement,
+          willing_to_relocate: this.state.willing_to_relocate,
+          industry: this.state.industryfield
         }
       })
     }

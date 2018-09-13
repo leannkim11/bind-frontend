@@ -9,6 +9,12 @@ const jobReducer = (state = initialState, action) => {
         ...state,
         job_post: action.payload
       };
+    case "DELETE_JOB_POST":
+
+      return {
+        ...state,
+        job_post: action.payload
+      }
     default:
       return state;
   }

@@ -4,29 +4,56 @@ import NavBar from "./NavBar";
 import JobCard from "./JobCard";
 import { connect } from "react-redux";
 import { withRouter } from 'react-router'
+import { deleteJobPost } from '../actions/index'
+import { bindActionCreators } from "redux";
+
+class InsiderProfileContainer extends Component {
 
 
-const InsiderProfileContainer = props => {
-  const redirect = () => {
-    props.history.push("/postjob")
+  componentDidMount() {
+
   }
 
-  // const deletePost = (e) => {
+  redirect = () => {
+    this.props.history.push("/postjob")
+  }
 
-  //   fetch(`http://localhost:3000/api/v1/jobs/${e.target.value}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
-  //     .then(res => res.json())
+  deletePost = (e, dispatch) => {
 
-  // }
+    e.preventDefault()
 
-  const renderMyPosts = () => {
+    let event = e.target.value
+
+    fetch(`http://localhost:3000/api/v1/jobs/${e.target.value}`, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+        "Content-Type": "application/json"
+      }
+    })
+      .then((res) => res.json())
+      .then((json) => {
+
+
+        // get state of posts set it to new variable- x
+        let jobarr = this.props.user.jobs
+        let newJobArr = jobarr.filter(job => job.id !== parseInt(event))
+        this.dispatchDelete(newJobArr)
+        //find the deleted element index from x
+        //delete elelemnt using splice
+        // send action payload with updated x
+      })
+      .then(window.location.reload())
+
+  }
+
+  dispatchDelete = (newJobArr) => {
+    this.props.deleteJobPost(newJobArr)
+  }
+
+  renderMyPosts = () => {
     // console.log(props.user)
-    let myjobsarr = props.user && props.user.jobs.map((job) =>
+    let myjobsarr = this.props.user && this.props.user.jobs.map((job) =>
       (<div key={job.id} className="job-card">
         <img className="card-img-top" src=".../100px180/" alt="" />
         <div className="card-body">
@@ -42,42 +69,47 @@ const InsiderProfileContainer = props => {
         <button
           value={job.id}
           className="delete-job"
-        // onClick={deletePost} 
+          onClick={this.deletePost}
         >delete</button>
       </div>))
     return myjobsarr
   }
 
+  render() {
 
-  return (
-    <div>
-      <NavBar />
+    return (
+      <div>
+        <NavBar />
 
-      <Search />
-      <div className="post-new">
-        <button className="btn btn-outline-info"
-          onClick={redirect}
-        >
-          POST NEW
+        <Search />
+        <div className="post-new">
+          <button className="btn btn-outline-info"
+            onClick={this.redirect}
+          >
+            POST NEW
             </button>
-      </div>
-      <div className="card-deck">
-        {/* <JobCard /> */}
-        {renderMyPosts()}
+        </div>
+        <div className="card-deck">
+          {/* <JobCard /> */}
+          {this.renderMyPosts()}
 
-        {/* {console.log(props)} */}
+          {/* {console.log(props)} */}
 
-      </div>
-      {/* {console.log(props.user)} */}
-    </div>
-  );
-
+        </div>
+        {/* {console.log(props.user)} */}
+      </div >
+    );
+  }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     user: state.user.user
   };
 }
 
-export default withRouter(connect(mapStateToProps)(InsiderProfileContainer))
+const mapDispatchToProps = dispatch => ({
+  deleteJobPost: bindActionCreators(deleteJobPost, dispatch)
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(InsiderProfileContainer))

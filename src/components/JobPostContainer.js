@@ -1,6 +1,7 @@
 import JobCard from "./JobCard";
 import React, { Component } from "react";
 import NavBar from "./NavBar";
+
 export default class JobPostContainer extends Component {
   state = { job: [] };
 

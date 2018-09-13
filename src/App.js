@@ -19,6 +19,7 @@ import SeekerProfileForm from "./components/SeekerProfileForm";
 import JobForm from "./components/JobForm";
 import JobPostContainer from "./components/JobPostContainer";
 import SeekerProfileEdit from './components/SeekerProfileEdit'
+import ProfilesContainer from './components/ProfilesContainer'
 /////
 
 class App extends Component {
@@ -74,6 +75,7 @@ class App extends Component {
             <Route exact path="/editjob" component={JobForm} />
             <Route exact path="/seekerprofileform" component={SeekerProfileForm} />
             <Route exact path="/jobs" component={JobPostContainer} />
+            <Route exact path="/profiles" component={ProfilesContainer} />
           </Switch>
         </Router>
       </div>
