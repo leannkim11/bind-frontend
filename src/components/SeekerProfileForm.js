@@ -165,8 +165,8 @@ class SeekerProfileForm extends Component {
           {/*Personal Statement*/}
           <textarea
             placeholder="personal statement"
-            name="personalStatement"
-            value={this.state.personalStatement}
+            name="personal_statement"
+            value={this.state.personal_statement}
             onChange={this.handleChange}
           />
           <br />

@@ -42,7 +42,7 @@ const NavBar = props => {
             </li>
           </ul>
           <div id="log-out-button">
-            <button className="nav-link" onClick={handleLogOut}>
+            <button className="nav-link" onClick={handleLogOut} >
               Log Out
               </button>
           </div>

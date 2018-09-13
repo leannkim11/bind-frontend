@@ -17,7 +17,7 @@ class SeekerProfileEdit extends Component {
         linkedin: "",
         city: "",
         state: "",
-        personalstatement: "",
+        personal_statement: "",
         willing_to_relocate: ""
     };
 
@@ -36,7 +36,7 @@ class SeekerProfileEdit extends Component {
                     linkedin: this.state.linkedin,
                     city: this.state.city,
                     state: this.state.state,
-                    personal_statement: this.state.personalstatement,
+                    personal_statement: this.state.personal_statement,
                     willing_to_relocate: this.state.willing_to_relocate,
                     industry: this.state.industryfield
                 }
@@ -172,8 +172,8 @@ class SeekerProfileEdit extends Component {
                     {/*Personal Statement*/}
                     <textarea
                         placeholder="personal statement"
-                        name="personalStatement"
-                        value={this.state.personalStatement}
+                        name="personal_statement"
+                        value={this.state.personal_statement}
                         onChange={this.handleChange}
                     />
                     <br />

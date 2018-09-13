@@ -8,7 +8,7 @@ export default class SeekerProfileContainer extends Component {
     return (
       <React.Fragment>
         <NavBar />
-        <Search />
+        {/* <Search /> */}
         <UserProfile />
       </React.Fragment>
     );

@@ -18,6 +18,10 @@ const UserProfile = props => {
     return props.user && props.user.profile.linkedin ? props.user.profile.industry : null
   }
 
+  const returnPersonalStatement = () => {
+    return props.user && props.user.profile.personal_statement ? props.user.profile.personal_statement : null
+  }
+
   return (
     <div className="user-profile">
       <img src="./avatar.png" id="profile-pic" alt="..." />
@@ -31,7 +35,7 @@ const UserProfile = props => {
       <p>Current Location: {returnLocation()}</p>
       <br />
       <p>Industry: {returnIndustry()}</p>
-      {/* <p>Personal Statement: {returnPersonalStatement()}</p> */}
+      <p>Personal Statement: {returnPersonalStatement()}</p>
       <br />
       <a href="./seekeredit" className="btn btn-outline-info">
 
