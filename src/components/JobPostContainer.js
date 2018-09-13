@@ -44,12 +44,12 @@ export default class JobPostContainer extends Component {
   }
 
   handleFilter = () => {
-    // let filtered = this.state.allJob.filter(j => j.industry ? j.industry.toLowerCase().includes(this.state.searchTerm.toLowerCase()) : "");
-    // this.setState({
-    //   profiles: filtered
-    // })
+    let filtered = this.state.allJob.filter(j => j.industry ? j.industry.toLowerCase().includes(this.state.searchTerm.toLowerCase()) : "");
+    this.setState({
+      job: filtered
+    })
     // this.state.allProfiles.filter(p => console.log(p.industry))
-    this.state.allJob.filter(j => console.log(j.industry))
+    // this.state.allJob.filter(j => console.log(j.industry))
   }
 
   render() {
