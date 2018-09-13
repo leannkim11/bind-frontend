@@ -1,9 +1,14 @@
 import JobCard from "./JobCard";
 import React, { Component } from "react";
 import NavBar from "./NavBar";
+import Search from './Search'
 
 export default class JobPostContainer extends Component {
-  state = { job: [] };
+  state = {
+    job: [],
+    allJob: [],
+    searchTerm: ""
+  };
 
   componentDidMount() {
     let config = {
@@ -17,7 +22,8 @@ export default class JobPostContainer extends Component {
       .then(res => res.json())
       .then(res =>
         this.setState({
-          job: res
+          job: res,
+          allJob: res
         })
       );
     //   .then( res => )
@@ -31,10 +37,26 @@ export default class JobPostContainer extends Component {
     // console.log(this.state.job);
   };
 
+  handleChange = (e) => {
+    this.setState({
+      searchTerm: e.target.value
+    }, () => this.handleFilter())
+  }
+
+  handleFilter = () => {
+    // let filtered = this.state.allJob.filter(j => j.industry ? j.industry.toLowerCase().includes(this.state.searchTerm.toLowerCase()) : "");
+    // this.setState({
+    //   profiles: filtered
+    // })
+    // this.state.allProfiles.filter(p => console.log(p.industry))
+    this.state.allJob.filter(j => console.log(j.industry))
+  }
+
   render() {
     return (
       <div>
         <NavBar />
+        <Search searchTerm={this.state.searchTerm} handleChange={this.handleChange} />
         {this.mapJobPosts()}
       </div>
     );

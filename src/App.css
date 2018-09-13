@@ -81,10 +81,13 @@
 }
 
 .user-profile {
-  float: right;
-  width: 800px;
-  height: 700px;
-  margin: 40px;
+  border-style: groove;
+  border-radius: 5px;
+  width: 50%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 2em;
 }
 
 .button {
@@ -124,15 +127,15 @@
 }
 
 #seeker-button {
-  position: absolute;
-  bottom: 40px;
-  left: 130px;
+  position: relative;
+ 
+
 }
 
 #insider-button {
-  position: absolute;
-  bottom: 40px;
-  left: 130px;
+
+  position: relative;
+ 
 }
 
 .job-card {

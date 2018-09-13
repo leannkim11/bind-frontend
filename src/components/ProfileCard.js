@@ -27,7 +27,7 @@ class ProfileCard extends Component {
                             </a>
                         {/* {console.log(this.props.allprofiles)} */}
                         {/* <h5>{this.findUserEmail(this.props.profile.profile.profile_id)}</h5> */}
-                        {console.log(this.props)}
+                        {/* {console.log(this           .props)} */}
                     </div>
 
                 </div>

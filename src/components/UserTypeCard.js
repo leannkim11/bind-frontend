@@ -46,7 +46,7 @@ const UserTypeCard = props => {
               <h4 className="card-title">Enter as Insider</h4>
               <p className="card-text">
                 Share job opportunities with qualified job seekers and get your
-                referral fee from your company
+                referral fee
               </p>
               <br />
 
